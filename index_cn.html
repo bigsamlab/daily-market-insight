@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sam 的市场洞察日报</title>
+<style>
+:root{
+ --fs-red:#C00000;
+ --fs-red2:#D62B2B;
+ --bg:#F7F8FA;
+ --card:#fff;
+ --text:#333;
+ --muted:#6B7280;
+ --border:#E5E7EB;
+ --radius:16px;
+ --shadow:0 8px 24px rgba(0,0,0,.06);
+ --max:1240px;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
+ background:var(--bg);
+ color:var(--text);
+}
+.container{width:min(var(--max),calc(100% - 32px));margin:auto;}
+header{
+ background:linear-gradient(135deg,#980000,#C00000,#D62B2B);
+ color:#fff;
+}
+.nav{
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ padding:18px 0;
+}
+.logo{
+ font-size:22px;
+ font-weight:700;
+}
+.logo span{
+ display:block;
+ font-size:13px;
+ opacity:.8;
+ font-weight:400;
+}
+.menu a{
+ color:#fff;
+ margin-left:28px;
+ text-decoration:none;
+ opacity:.9;
+}
+.hero{
+ padding:60px 0 70px;
+}
+.hero h1{
+ font-size:52px;
+ margin-bottom:18px;
+}
+.hero p{
+ max-width:760px;
+ font-size:18px;
+ opacity:.92;
+ line-height:1.7;
+}
+.btn{
+ display:inline-block;
+ margin-top:30px;
+ background:#fff;
+ color:var(--fs-red);
+ padding:14px 24px;
+ border-radius:10px;
+ text-decoration:none;
+ font-weight:700;
+}
+main{
+ padding:40px 0 70px;
+}
+.section{
+ margin-bottom:28px;
+}
+.section-title{
+ font-size:28px;
+ margin-bottom:18px;
+}
+.grid{
+ display:grid;
+ gap:18px;
+}
+.snapshot{
+ grid-template-columns:repeat(5,1fr);
+}
+.card{
+ background:#fff;
+ border:1px solid var(--border);
+ border-radius:var(--radius);
+ box-shadow:var(--shadow);
+ padding:24px;
+}
+.kpi{
+ text-align:center;
+}
+.kpi h2{
+ color:var(--fs-red);
+ font-size:42px;
+ margin-bottom:10px;
+}
+.latest{
+ grid-template-columns:2fr 1fr;
+}
+.report-card h3{
+ font-size:30px;
+ margin-bottom:10px;
+}
+.report-card p{
+ color:var(--muted);
+ line-height:1.8;
+ margin-bottom:20px;
+}
+.read-btn{
+ display:inline-block;
+ padding:12px 20px;
+ background:var(--fs-red);
+ color:#fff;
+ text-decoration:none;
+ border-radius:10px;
+}
+.list a{
+ display:block;
+ padding:14px 0;
+ border-bottom:1px solid var(--border);
+ color:#333;
+ text-decoration:none;
+}
+.tags{
+ display:flex;
+ flex-wrap:wrap;
+ gap:12px;
+}
+.tag{
+ background:#FFF3F3;
+ color:var(--fs-red);
+ border:1px solid #FFD5D5;
+ border-radius:999px;
+ padding:10px 18px;
+ font-weight:600;
+}
+footer{
+ margin-top:40px;
+ color:#888;
+ text-align:center;
+ padding:30px 0;
+}
+@media(max-width:900px){
+ .snapshot,.latest{grid-template-columns:1fr;}
+ .hero h1{font-size:36px;}
+ .menu{display:none;}
+}
+</style>
+</head>
+<body>
+
+<header>
+<div class="container">
+
+<div class="nav">
+<div class="logo">
+FS
+<span>Sam 的市场洞察日报</span>
+</div>
+
+<div class="menu">
+<a href="#">首页</a>
+<a href="archive.html">归档</a>
+<a href="#">关于</a>
+</div>
+</div>
+
+<div class="hero">
+
+<h1>AI 与网络通信<br>市场情报</h1>
+
+<p>
+每天围绕 AI、Cisco、Juniper、Ruijie 等通信厂商，自动汇总最新资讯、产品动态、解决方案、版本更新及行业新闻，为产品、市场、销售与解决方案团队提供高效的每日阅读入口。
+</p>
+
+<a class="btn" href="reports/2026-07-06.html">📖 阅读今日日报</a>
+
+</div>
+
+</div>
+</header>
+
+<main class="container">
+
+<section class="section">
+<h2 class="section-title">今日概览</h2>
+
+<div class="grid snapshot">
+
+<div class="card kpi">
+<h2>12</h2>
+<div>今日资讯</div>
+</div>
+
+<div class="card kpi">
+<h2>3</h2>
+<div>AI</div>
+</div>
+
+<div class="card kpi">
+<h2>3</h2>
+<div>Cisco</div>
+</div>
+
+<div class="card kpi">
+<h2>3</h2>
+<div>Juniper</div>
+</div>
+
+<div class="card kpi">
+<h2>3</h2>
+<div>Ruijie</div>
+</div>
+
+</div>
+</section>
+
+<section class="section">
+
+<h2 class="section-title">最新日报</h2>
+
+<div class="grid latest">
+
+<div class="card report-card">
+
+<h3>2026-07-06 日报</h3>
+
+<p>
+今日聚焦 AI 基础设施、Cisco Agentic AI、Juniper AI-Native 网络通信、
+Ruijie EDN 2.0 等热点内容。
+</p>
+
+<a class="read-btn" href="reports/2026/07/2026-07-06/">阅读全文 →</a>
+
+</div>
+
+<div class="card list">
+
+<h3 style="margin-bottom:15px;">近期日报</h3>
+
+<a href="reports/2026-07-06.html">2026-07-06</a>
+<a href="#">2026-07-05（敬请期待）</a>
+<a href="#">2026-07-04（敬请期待）</a>
+<a href="archive.html">View 归档 →</a>
+
+</div>
+
+</div>
+
+</section>
+
+<section class="section">
+
+<h2 class="section-title">热点主题</h2>
+
+<div class="card">
+
+<div class="tags">
+
+<div class="tag">AI</div>
+<div class="tag">Cisco</div>
+<div class="tag">Juniper</div>
+<div class="tag">Ruijie</div>
+<div class="tag">网络通信</div>
+<div class="tag">Data Center</div>
+<div class="tag">网络安全</div>
+<div class="tag">云计算</div>
+
+</div>
+
+</div>
+
+</section>
+
+<footer>
+
+Sam 的市场洞察日报 · 基于 GitHub Pages 构建
+
+</footer>
+
+</main>
+
+</body>
+</html>
