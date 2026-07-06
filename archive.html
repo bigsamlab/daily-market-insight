@@ -1,65 +1,76 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-
 <meta charset="UTF-8">
-
-<title>Archive</title>
-
+<title>日报归档 | Archive</title>
 <style>
+    :root {
+        --primary-color: #C00000;
+        --bg-color: #f4f7f9;
+        --card-bg: #ffffff;
+        --text-main: #2c3e50;
+        --text-sub: #7f8c8d;
+    }
 
-body{
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        background: var(--bg-color);
+        color: var(--text-main);
+        line-height: 1.6;
+        max-width: 800px;
+        margin: 60px auto;
+        padding: 0 20px;
+    }
 
-font-family:Arial;
+    h1 {
+        color: var(--primary-color);
+        font-size: 24px;
+        margin-bottom: 30px;
+        border-left: 4px solid var(--primary-color);
+        padding-left: 15px;
+    }
 
-background:#f6f7f9;
+    .archive-list {
+        background: var(--card-bg);
+        border-radius: 8px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        padding: 10px 0;
+    }
 
-max-width:1000px;
+    a {
+        display: block;
+        padding: 15px 25px;
+        text-decoration: none;
+        color: var(--text-main);
+        transition: all 0.2s ease;
+        border-bottom: 1px solid #f0f0f0;
+    }
 
-margin:auto;
+    a:last-child {
+        border-bottom: none;
+    }
 
-padding:50px;
+    a:hover {
+        background-color: #fafafa;
+        color: var(--primary-color);
+        padding-left: 30px;
+    }
 
-}
-
-h1{
-
-color:#C00000;
-
-}
-
-a{
-
-display:block;
-
-padding:10px;
-
-text-decoration:none;
-
-color:#333;
-
-border-bottom:1px solid #eee;
-
-}
-
-a:hover{
-
-background:#fafafa;
-
-}
-
+    a::before {
+        content: "📄";
+        margin-right: 10px;
+        font-size: 0.9em;
+    }
 </style>
-
 </head>
-
 <body>
 
 <h1>日报归档</h1>
 
-<!-- ARCHIVE_START -->
-
-<!-- ARCHIVE_END -->
+<div class="archive-list">
+    <!-- ARCHIVE_START -->
+    <!-- ARCHIVE_END -->
+</div>
 
 </body>
-
 </html>
