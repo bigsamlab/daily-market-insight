@@ -1,9 +1,9 @@
-name: Update Homepage
+name: Build Daily Market Insight
 
 on:
   push:
     paths:
-      - "briefs/*.html"
+      - "briefs/**"
 
 permissions:
   contents: write
@@ -24,16 +24,19 @@ jobs:
       - name: Generate Homepage
         run: python scripts/generate_index.py
 
+      - name: Generate Archive
+        run: python scripts/generate_archive.py
+
       - name: Commit Changes
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
-          git add index.html
+          git add index.html archive.html
 
           if git diff --cached --quiet; then
-            echo "No changes"
+            echo "No changes."
           else
-            git commit -m "Auto update homepage"
+            git commit -m "🤖 Auto update homepage & archive"
             git push
           fi
