@@ -34,18 +34,19 @@ body{
 }
 
 .logo{
-    width:82px;
-    height:82px;
-    margin:0 auto 20px;
-    border-radius:18px;
-    background:rgba(255,255,255,.15);
-    border:1px solid rgba(255,255,255,.25);
+    width:120px;
+    height:120px;
+    margin:0 auto 24px;
     display:flex;
     align-items:center;
     justify-content:center;
-    font-size:30px;
-    font-weight:700;
-    backdrop-filter:blur(10px);
+}
+
+.logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    filter:drop-shadow(0 8px 20px rgba(0,0,0,.18));
 }
 
 .hero h1{
@@ -209,7 +210,9 @@ a{
 
 <section class="hero">
 
-<div class="logo">BS</div>
+<div class="logo">
+    <img src="assets/logo.svg" alt="BigSamLab Logo">
+</div>
 
 <h1>About BigSamLab</h1>
 
