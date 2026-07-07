@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Sam 的市场洞察日报</title>
+<link rel="icon" href="assets/logo.png">
 <style>
 :root{
  --fs-red:#C00000;
@@ -35,14 +36,26 @@ header{
  padding:18px 0;
 }
 .logo{
- font-size:22px;
- font-weight:700;
+    display:flex;
+    align-items:center;
+    gap:14px;
 }
+
+.logo img{
+    width:48px;
+    height:48px;
+}
+
+.logo-title{
+    font-size:22px;
+    font-weight:700;
+}
+
 .logo span{
- display:block;
- font-size:13px;
- opacity:.8;
- font-weight:400;
+    display:block;
+    font-size:13px;
+    opacity:.8;
+    font-weight:400;
 }
 .menu a{
  color:#fff;
@@ -165,8 +178,13 @@ footer{
 
 <div class="nav">
 <div class="logo">
-BigSamLab
-<span>Sam's Daily Market Insight</span>
+
+    <img src="assets/logo.svg" alt="BigSamLab Logo">
+
+    <div>
+        <div class="logo-title">Made by Sam</div>
+    </div>
+
 </div>
 
 <div class="menu">
