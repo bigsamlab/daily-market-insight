@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI & 通信行业日报｜2026-07-07</title>
+  <style>
+    :root {
+      --fs-red: #C00000;
+      --fs-black: #494948;
+      --bg: #F7F8FA;
+      --card: #FFFFFF;
+      --border: #E5E7EB;
+      --muted: #6B7280;
+      --tag-bg: #FFF3F3;
+      --shadow: 0 8px 24px rgba(15, 23, 42, 0.06);
+      --radius: 16px;
+      --radius-sm: 10px;
+      --max-width: 1280px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--fs-black);
+      line-height: 1.65;
+    }
+
+    a {
+      color: var(--fs-red);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .page {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 24px;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #C00000 0%, #8F0000 100%);
+      color: #fff;
+      border-radius: 24px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::after {
+      content: "";
+      position: absolute;
+      inset: auto -80px -80px auto;
+      width: 260px;
+      height: 260px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 50%;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      padding: 8px 12px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(6px);
+    }
+
+    .brand-mark {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #fff;
+      box-shadow: 0 0 0 6px rgba(255,255,255,0.12);
+    }
+
+    .header h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin: 0;
+      font-size: 16px;
+      color: rgba(255,255,255,0.9);
+      max-width: 920px;
+    }
+
+    .meta-grid {
+      margin-top: 24px;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .meta-item {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+      padding: 14px 16px;
+    }
+
+    .meta-label {
+      display: block;
+      font-size: 12px;
+      color: rgba(255,255,255,0.75);
+      margin-bottom: 4px;
+    }
+
+    .meta-value {
+      font-size: 15px;
+      font-weight: 700;
+    }
+
+    .section {
+      margin-top: 24px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 24px;
+    }
+
+    .section-title {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-title h2 {
+      margin: 0;
+      font-size: 22px;
+      color: var(--fs-black);
+    }
+
+    .section-title .accent {
+      width: 6px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--fs-red);
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+    .title-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .summary-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 18px;
+    }
+
+    .panel {
+      background: #FCFCFD;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .panel h3 {
+      margin: 0 0 10px;
+      font-size: 16px;
+      color: var(--fs-black);
+    }
+
+    .panel p, .panel li {
+      margin: 0;
+      color: var(--fs-black);
+      font-size: 14px;
+    }
+
+    .panel ul {
+      margin: 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .kpi-grid {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .kpi-card {
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFF8F8 100%);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      min-height: 112px;
+    }
+
+    .kpi-label {
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+
+    .kpi-value {
+      color: var(--fs-red);
+      font-size: 34px;
+      line-height: 1;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .kpi-sub {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .top3-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .top-card, .news-card {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: #fff;
+      overflow: hidden;
+    }
+
+    .top-card {
+      box-shadow: 0 10px 24px rgba(192, 0, 0, 0.08);
+    }
+
+    .top-rank {
+      background: var(--fs-red);
+      color: #fff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.6px;
+      padding: 10px 14px;
+    }
+
+    .card-body {
+      padding: 18px;
+    }
+
+    .card-title {
+      margin: 0 0 12px;
+      font-size: 18px;
+      line-height: 1.4;
+      color: var(--fs-black);
+    }
+
+    .card-text {
+      margin: 0 0 14px;
+      font-size: 14px;
+      color: var(--fs-black);
+    }
+
+    .meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--tag-bg);
+      color: var(--fs-red);
+      font-size: 12px;
+      font-weight: 700;
+      border: 1px solid #FFD7D7;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 14px;
+    }
+
+    .highlight {
+      background: #FFF8F8;
+      border: 1px solid #FFDADA;
+      border-radius: 12px;
+      padding: 12px 14px;
+      font-size: 13px;
+    }
+
+    .highlight strong { color: var(--fs-red); }
+
+    .section-block + .section-block {
+      margin-top: 28px;
+      padding-top: 24px;
+      border-top: 1px dashed var(--border);
+    }
+
+    .section-block h3 {
+      margin: 0 0 14px;
+      font-size: 20px;
+      color: var(--fs-black);
+    }
+
+    .news-list {
+      display: grid;
+      gap: 14px;
+    }
+
+    .news-card .card-title {
+      font-size: 17px;
+      margin-bottom: 10px;
+    }
+
+    .news-card .card-body {
+      padding: 18px 18px 16px;
+    }
+
+    .observations {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .ob-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+      background: linear-gradient(180deg, #fff 0%, #fafafa 100%);
+    }
+
+    .ob-index {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--fs-red);
+      color: #fff;
+      font-weight: 800;
+      margin-bottom: 12px;
+    }
+
+    .archive-list {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .archive-item {
+      border: 1px dashed var(--border);
+      border-radius: 12px;
+      padding: 14px;
+      background: #FCFCFD;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .footer {
+      margin: 24px 0 8px;
+      padding: 22px 24px;
+      border-radius: 16px;
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      box-shadow: var(--shadow);
+    }
+
+    .footer ul {
+      margin: 10px 0 0;
+      padding-left: 20px;
+      display: grid;
+      gap: 8px;
+    }
+
+    .source-link {
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    @media (max-width: 1100px) {
+      .kpi-grid, .top3-grid, .observations, .archive-list { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .summary-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 780px) {
+      .page { padding: 14px; }
+      .header, .section, .footer { padding: 18px; }
+      .meta-grid, .kpi-grid, .top3-grid, .observations, .archive-list { grid-template-columns: 1fr; }
+      .header h1 { font-size: 28px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header class="header">
+      <div class="brand"><span class="brand-mark"></span>FS｜AI 与通信行业日报</div>
+      <h1>AI & 通信行业日报｜AI Agent、推理芯片、网络智能运维持续升温</h1>
+      <p class="subtitle">面向管理层、产品经理、销售与解决方案团队的内部快读版。聚焦 AI 行业与 Cisco、Juniper、Ruijie 近 30 天重点动态，优先呈现近 7 天可执行情报。</p>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <span class="meta-label">统计范围</span>
+          <div class="meta-value">近 30 天重点动态，优先近 7 天</div>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">生成时间</span>
+          <div class="meta-value">2026-07-07 09:41（北京时间）</div>
+        </div>
+        <div class="meta-item">
+          <span class="meta-label">阅读顺序建议</span>
+          <div class="meta-value">Top 3 → AI 行业 → Cisco → Juniper → Ruijie</div>
+        </div>
+      </div>
+    </header>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>今日日报摘要</h2></div>
+      </div>
+      <div class="summary-grid">
+        <div class="panel">
+          <h3>今日主线</h3>
+          <ul>
+            <li>AI 厂商竞争重点正从通用模型能力转向 <strong>Agent 执行、工具调用与安全治理</strong>。</li>
+            <li>Cisco 与 Juniper 持续强化 <strong>AI 时代的网络运维与可观测性</strong>，网络从连接层向智能控制层演进。</li>
+            <li>Ruijie 延续 <strong>渠道生态扩张 + AI 驱动基础设施</strong> 路线，强调区域市场和中小企业落地能力。</li>
+          </ul>
+        </div>
+        <div class="panel">
+          <h3>阅读建议</h3>
+          <p>建议先快速浏览 Top 3，把握 Agent、推理芯片、网络智能运维三条主线；随后按品牌板块阅读，便于从模型能力、基础设施到渠道落地形成完整判断链路。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>KPI 概览</h2></div>
+      </div>
+      <div class="kpi-grid">
+        <div class="kpi-card"><div class="kpi-label">今日收录总数</div><div class="kpi-value">8</div><div class="kpi-sub">官方/高可信来源去重后</div></div>
+        <div class="kpi-card"><div class="kpi-label">AI 行业</div><div class="kpi-value">4</div><div class="kpi-sub">模型、芯片、科研工作台、政策可用性</div></div>
+        <div class="kpi-card"><div class="kpi-label">Cisco</div><div class="kpi-value">2</div><div class="kpi-sub">Agentic 平台与安全韧性</div></div>
+        <div class="kpi-card"><div class="kpi-label">Juniper</div><div class="kpi-value">1</div><div class="kpi-sub">Mist/Marvis 更新与 API 迁移</div></div>
+        <div class="kpi-card"><div class="kpi-label">Ruijie</div><div class="kpi-value">1</div><div class="kpi-sub">伙伴生态与 AI 基础设施</div></div>
+        <div class="kpi-card"><div class="kpi-label">重点动态数</div><div class="kpi-value">3</div><div class="kpi-sub">用于管理层快读</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>今日重点 Top 3</h2></div>
+      </div>
+      <div class="top3-grid">
+        <article class="top-card">
+          <div class="top-rank">TOP 1</div>
+          <div class="card-body">
+            <h3 class="card-title">OpenAI 预览 GPT-5.6 系列，强化高阶推理与子代理能力</h3>
+            <div class="meta-row">
+              <span class="tag">AI行业</span><span class="tag">产品动态</span>
+            </div>
+            <p class="card-text">OpenAI 于 2026-06-26 预览 GPT-5.6 系列，其中 Sol 为旗舰型号，Terra 面向日常工作，Luna 主打速度与成本。官方强调更高 reasoning effort，并提到 ultra 模式可借助 subagents 加速复杂任务，体现其正从“模型”升级为“多代理工作系统”。</p>
+            <div class="info-list">
+              <div><strong>来源：</strong>OpenAI</div>
+              <div><strong>发布时间：</strong>2026-06-26</div>
+            </div>
+            <div class="highlight"><strong>为什么值得关注：</strong>企业竞争焦点已从单轮问答转向复杂任务编排，将直接影响 Agent 平台、开发框架与算力调用方式。</div>
+            <p style="margin:14px 0 0;"><a class="source-link" href="https://openai.com/index/previewing-gpt-5-6-sol/?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p>
+          </div>
+        </article>
+
+        <article class="top-card">
+          <div class="top-rank">TOP 2</div>
+          <div class="card-body">
+            <h3 class="card-title">Cisco 发布 Agentic 平台，网络与安全运维进入“人机协同控制面”</h3>
+            <div class="meta-row">
+              <span class="tag">Cisco</span><span class="tag">产品动态</span><span class="tag">安全公告</span><span class="tag">解决方案</span>
+            </div>
+            <p class="card-text">Cisco 于 2026-06-02 发布 Cisco Cloud Control，定位为面向运维人员与可信 AI agents 的统一平台，并配套 Cisco IQ、Live Protect、Hybrid Mesh Firewall、Quantum Ready Assessments 等能力，多项能力计划于 2026 年 7 月全球可用。</p>
+            <div class="info-list">
+              <div><strong>来源：</strong>Cisco Newsroom</div>
+              <div><strong>发布时间：</strong>2026-06-02</div>
+            </div>
+            <div class="highlight"><strong>为什么值得关注：</strong>Cisco 正从网络设备厂商延伸为 AI 驱动的运维与防御平台，影响网络、安全与服务三条产品线的整体捆绑打法。</div>
+            <p style="margin:14px 0 0;"><a class="source-link" href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m06/cisco-unveils-agentic-platform-for-operating-and-defending-critical-it-infrastructure.html?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p>
+          </div>
+        </article>
+
+        <article class="top-card">
+          <div class="top-rank">TOP 3</div>
+          <div class="card-body">
+            <h3 class="card-title">Anthropic 发布 Claude Sonnet 5，Agent 能力下沉到更低成本档位</h3>
+            <div class="meta-row">
+              <span class="tag">AI行业</span><span class="tag">产品动态</span>
+            </div>
+            <p class="card-text">Anthropic 于 2026-06-30 发布 Claude Sonnet 5，强调其是“最具 agentic 特性的 Sonnet 模型”，可规划任务、使用浏览器与终端工具，并在部分任务上接近更高阶 Opus 4.8，同时以更低价格提供，并成为 Free 和 Pro 默认模型。</p>
+            <div class="info-list">
+              <div><strong>来源：</strong>Anthropic</div>
+              <div><strong>发布时间：</strong>2026-06-30</div>
+            </div>
+            <div class="highlight"><strong>为什么值得关注：</strong>Agent 能力正从高端模型向更普及价位下沉，企业在代码、搜索、运维助手场景的试点门槛将继续下降。</div>
+            <p style="margin:14px 0 0;"><a class="source-link" href="https://www.anthropic.com/news/claude-sonnet-5?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>AI 行业板块</h2></div>
+      </div>
+      <div class="news-list">
+        <article class="news-card"><div class="card-body"><h3 class="card-title">OpenAI：发布自研推理芯片 Jalapeño</h3><div class="meta-row"><span class="tag">AI行业</span><span class="tag">产品动态</span><span class="tag">市场资讯</span></div><p class="card-text">OpenAI 与 Broadcom 于 2026-06-24 发布面向 LLM 推理的首款 Intelligence Processor“Jalapeño”，围绕 LLM inference 设计。官方称其性能功耗比优于当前最先进方案，并计划自 2026 年起配合数据中心伙伴进行吉瓦级部署。</p><div class="info-list"><div><strong>来源：</strong>OpenAI</div><div><strong>发布时间：</strong>2026-06-24</div></div><div class="highlight"><strong>为什么值得关注：</strong>头部 AI 厂商正向芯片与系统栈延伸，未来不仅比模型，也比推理成本、交付效率和基础设施掌控力。</div><p style="margin:14px 0 0;"><a class="source-link" href="https://openai.com/index/openai-broadcom-jalapeno-inference-chip/?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p></div></article>
+        <article class="news-card"><div class="card-body"><h3 class="card-title">Anthropic：上线 Claude Science，切入科研工作台</h3><div class="meta-row"><span class="tag">AI行业</span><span class="tag">解决方案</span><span class="tag">产品动态</span></div><p class="card-text">Anthropic 于 2026-06-30 宣布 Claude Science 可用，定位为面向科研人员的 AI workbench，可整合常用科研工具和软件包，产出可审计工件，并支持更灵活的计算资源接入，官方特别强调其可生成图表、手稿及相关代码。</p><div class="info-list"><div><strong>来源：</strong>Anthropic</div><div><strong>发布时间：</strong>2026-06-30</div></div><div class="highlight"><strong>为什么值得关注：</strong>AI 厂商正从通用助手转向行业工作台，科研、医药、生物等高价值垂类可能成为下一轮企业级落地重点。</div><p style="margin:14px 0 0;"><a class="source-link" href="https://www.anthropic.com/news/claude-science-ai-workbench?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p></div></article>
+        <article class="news-card"><div class="card-body"><h3 class="card-title">Anthropic：Fable 5 恢复全球可用</h3><div class="meta-row"><span class="tag">AI行业</span><span class="tag">政策动态</span><span class="tag">产品动态</span></div><p class="card-text">Anthropic 于 2026-06-30 表示，受美国政府此前出口管制影响而暂停的 Claude Fable 5 和 Mythos 5，相关限制已解除，其中 Fable 5 自 2026-07-01 起恢复面向全球用户提供。</p><div class="info-list"><div><strong>来源：</strong>Anthropic</div><div><strong>发布时间：</strong>2026-06-30 / 2026-07-01 更新</div></div><div class="highlight"><strong>为什么值得关注：</strong>Frontier AI 供给已明显受政策与合规牵引，企业选型需同时评估模型能力、地域可用性与合规连续性。</div><p style="margin:14px 0 0;"><a class="source-link" href="https://www.anthropic.com/news/redeploying-fable-5?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>Cisco 板块</h2></div>
+      </div>
+      <div class="news-list">
+        <article class="news-card"><div class="card-body"><h3 class="card-title">Cisco：Agentic Workplace 叙事进一步落地</h3><div class="meta-row"><span class="tag">Cisco</span><span class="tag">产品动态</span><span class="tag">解决方案</span></div><p class="card-text">Cisco 博客披露，其 Agentic Actions for networking 已于 2026 年 6 月进入 beta，Deep Reasoning 同样在 beta 中，Digital Twin 计划于 2026 年 7 月进入 alpha，用于在生产变更前模拟设备、拓扑和配置。</p><div class="info-list"><div><strong>来源：</strong>Cisco Blogs</div><div><strong>发布时间：</strong>2026 年 6 月</div></div><div class="highlight"><strong>为什么值得关注：</strong>Cisco 正把 AI 能力嵌入网络运维闭环，从“建议”走向“验证后执行”，对大型园区、分支和数据中心运维模式影响较大。</div><p style="margin:14px 0 0;"><a class="source-link" href="https://blogs.cisco.com/news/the-agentic-workplace-runs-on-cisco?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p></div></article>
+        <article class="news-card"><div class="card-body"><h3 class="card-title">Cisco：Cloud Control + 安全韧性能力成套推出</h3><div class="meta-row"><span class="tag">Cisco</span><span class="tag">安全公告</span><span class="tag">产品动态</span></div><p class="card-text">在同一轮发布中，Cisco 还扩展了 Live Protect、Hybrid Mesh Firewall、AI Defense、Zero Trust for agents 与量子安全相关能力，并承诺到 2026 年 12 月前让其核心产品组合的大部分具备 quantum-safe communications 能力。</p><div class="info-list"><div><strong>来源：</strong>Cisco Newsroom</div><div><strong>发布时间：</strong>2026-06-02</div></div><div class="highlight"><strong>为什么值得关注：</strong>对客户沟通来说，Cisco 已把 AI、安全、量子安全和服务打包成统一叙事，更利于高客单项目的整体销售。</div><p style="margin:14px 0 0;"><a class="source-link" href="https://newsroom.cisco.com/c/r/newsroom/en/us/a/y2026/m06/cisco-unveils-agentic-platform-for-operating-and-defending-critical-it-infrastructure.html?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>Juniper 板块</h2></div>
+      </div>
+      <div class="news-list">
+        <article class="news-card"><div class="card-body"><h3 class="card-title">Juniper：Mist 6 月更新强化 Marvis、统一升级与 API 迁移</h3><div class="meta-row"><span class="tag">Juniper</span><span class="tag">版本更新</span><span class="tag">产品动态</span></div><p class="card-text">Juniper Mist 在 2026-06-02 更新中，新增统一的交换机与 WAN Edge 升级编排、Marvis 会话式故障排查、Marvis Minis for wired、更多 LEM 与 SLE 能力，并公布旧版 Marvis insights API 的弃用计划：2026 年 9 月 UI 下线、2026 年 12 月 API EOS。</p><div class="info-list"><div><strong>来源：</strong>Juniper Documentation / Mist Product Updates</div><div><strong>发布时间：</strong>2026-06-02</div></div><div class="highlight"><strong>为什么值得关注：</strong>Juniper 继续以 Mist/Marvis 深化 AI-native 运维；对现网客户而言，API 迁移时间表意味着集成侧需尽快评估改造成本。</div><p style="margin:14px 0 0;"><a class="source-link" href="https://www.juniper.net/documentation/us/en/software/mist/product-updates/latest.html?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>Ruijie 板块</h2></div>
+      </div>
+      <div class="news-list">
+        <article class="news-card"><div class="card-body"><h3 class="card-title">Ruijie：2026 全球合作伙伴峰会继续强调 AI 驱动基础设施</h3><div class="meta-row"><span class="tag">Ruijie</span><span class="tag">合作生态</span><span class="tag">市场资讯</span><span class="tag">解决方案</span></div><p class="card-text">Ruijie 于 2026 年 5 月举办 Global Partner Summit，官方信息显示其继续强调 AI-driven infrastructure，并围绕 AIGC 时代的数据与算力需求，推动国际伙伴体系能力建设。结合其同期面向 SME 的新品牌与 CEAN 架构动作，Ruijie 仍在强化“云、边、AI 运维”的国际化打法。</p><div class="info-list"><div><strong>来源：</strong>Ruijie Networks / Reyee</div><div><strong>发布时间：</strong>2026 年 5 月</div></div><div class="highlight"><strong>为什么值得关注：</strong>对区域市场与渠道业务而言，Ruijie 的重点不是单点新品，而是通过生态、品牌与架构打包提升国际市场渗透率。</div><p style="margin:14px 0 0;"><a class="source-link" href="https://www.ruijie.com/en-global/about/news/partner-summit-2026?utm_source=openai" target="_blank" rel="noopener">查看原文</a></p></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>值得关注</h2></div>
+      </div>
+      <div class="observations">
+        <div class="ob-card"><div class="ob-index">1</div><div><strong>Agent 正在成为 AI 厂商的统一产品方向。</strong><br>OpenAI 强调 subagents 与高阶推理，Anthropic 强调工具使用与自治能力，Cisco 则把 agentic 能力嵌入网络与安全运维，说明“可执行 AI”已进入基础设施层。</div></div>
+        <div class="ob-card"><div class="ob-index">2</div><div><strong>网络厂商竞争点正从硬件规格转向 AI 运维控制面。</strong><br>Cisco 的 Cloud Control / Cisco IQ、Juniper 的 Mist / Marvis 都在争夺运维入口，后续比拼将更多落在闭环自动化、可观测性与跨域协同能力上。</div></div>
+        <div class="ob-card"><div class="ob-index">3</div><div><strong>算力与推理成本将继续成为企业 AI 落地的关键变量。</strong><br>OpenAI 自研 Jalapeño 表明头部模型厂商正向芯片和系统栈深入，这将直接影响未来 API 定价、推理成本与专有云部署策略。</div></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="section-title">
+        <div class="title-wrap"><span class="accent"></span><h2>历史日报入口</h2></div>
+      </div>
+      <div class="archive-list">
+        <div class="archive-item">2026-07-07｜当前日报</div>
+        <div class="archive-item">2026-07-06｜预留历史链接位</div>
+        <div class="archive-item">2026-07-05｜预留历史链接位</div>
+        <div class="archive-item">2026-07-04｜预留历史链接位</div>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <strong>页脚说明</strong>
+      <ul>
+        <li><strong>数据来源说明：</strong>以 OpenAI、Anthropic、Cisco、Juniper、Ruijie 官方新闻页、博客、产品更新页为主，辅以官方帮助与文档页面。</li>
+        <li><strong>生成时间：</strong>2026-07-07 09:41（北京时间）</li>
+        <li><strong>内部声明：</strong>仅供内部参考，个别厂商若当日未检索到新增正式发布，则优先选取近 30 天仍具业务价值的最新动态补齐版面。</li>
+        <li><strong>整理方式：</strong>AI 自动整理，已尽量去重并优先采用官方来源。</li>
+      </ul>
+    </footer>
+  </div>
+</body>
+</html>
