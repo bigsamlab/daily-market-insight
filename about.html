@@ -1,67 +1,85 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>About | BigSamLab</title>
 
 <style>
 :root{
     --primary:#C00000;
-    --primary-dark:#9E0000;
+    --primary-dark:#970000;
     --text:#222;
     --sub:#666;
-    --bg:#f6f7fb;
+    --bg:#f5f7fa;
     --card:#ffffff;
-    --border:#e6e6e6;
+    --border:#e9e9e9;
 }
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
-    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;
     background:var(--bg);
     color:var(--text);
-    line-height:1.75;
+    line-height:1.8;
 }
 
 .hero{
-    background:linear-gradient(135deg,#C00000,#8B0000);
+    background:linear-gradient(135deg,#C00000,#7E0000);
     color:#fff;
-    padding:90px 20px;
     text-align:center;
+    padding:90px 20px 80px;
+}
+
+.logo{
+    width:82px;
+    height:82px;
+    margin:0 auto 20px;
+    border-radius:18px;
+    background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.25);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:30px;
+    font-weight:700;
+    backdrop-filter:blur(10px);
 }
 
 .hero h1{
     font-size:48px;
-    margin-bottom:18px;
+    margin-bottom:12px;
 }
 
 .hero p{
-    font-size:20px;
-    opacity:.95;
     max-width:760px;
     margin:auto;
+    font-size:20px;
+    opacity:.95;
+}
+
+.hero small{
+    display:block;
+    margin-top:12px;
+    opacity:.8;
+    font-size:15px;
 }
 
 .container{
-    max-width:1000px;
-    margin:50px auto;
+    max-width:1080px;
+    margin:50px auto 80px;
     padding:0 20px;
 }
 
 .card{
     background:#fff;
     border:1px solid var(--border);
-    border-radius:16px;
+    border-radius:18px;
     padding:36px;
-    margin-bottom:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.05);
+    margin-bottom:28px;
+    box-shadow:0 8px 24px rgba(0,0,0,.05);
 }
 
 .card h2{
@@ -70,32 +88,43 @@ body{
     font-size:28px;
 }
 
+.card h2 span{
+    color:#888;
+    font-size:17px;
+    font-weight:400;
+}
+
 .card p{
     color:#444;
-    margin-bottom:15px;
+    margin-bottom:14px;
 }
 
 .grid{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:20px;
+    gap:22px;
     margin-top:25px;
 }
 
 .item{
     background:#fafafa;
     border:1px solid #ececec;
-    border-radius:12px;
-    padding:22px;
+    border-radius:14px;
+    padding:24px;
+    transition:.25s;
+}
+
+.item:hover{
+    transform:translateY(-4px);
 }
 
 .item h3{
     color:var(--primary);
-    margin-bottom:12px;
+    margin-bottom:14px;
 }
 
 .item ul{
-    margin-left:18px;
+    padding-left:20px;
 }
 
 .item li{
@@ -106,32 +135,61 @@ body{
     display:flex;
     flex-wrap:wrap;
     gap:12px;
-    margin-top:20px;
+    margin-top:22px;
 }
 
 .badge{
-    background:#fff3f3;
-    color:var(--primary);
     padding:10px 16px;
     border-radius:999px;
-    border:1px solid #ffd0d0;
+    background:#fff3f3;
+    color:var(--primary);
+    border:1px solid #ffd8d8;
     font-weight:600;
 }
 
 .quote{
-    margin-top:20px;
+    margin-top:25px;
     padding:24px;
-    border-left:5px solid var(--primary);
     background:#fafafa;
-    font-size:18px;
-    color:#444;
+    border-left:5px solid var(--primary);
+    font-style:italic;
 }
 
-footer{
+.footer{
+    margin-top:70px;
+    padding:55px 20px;
+    background:#fff;
+    border-top:1px solid #ececec;
     text-align:center;
-    padding:50px 20px;
-    color:#888;
+}
+
+.footer-logo{
+    font-size:30px;
+    color:var(--primary);
+    font-weight:700;
+}
+
+.footer-tagline{
+    color:#666;
+    margin-top:10px;
+}
+
+.footer-divider{
+    width:80px;
+    height:3px;
+    margin:26px auto;
+    background:var(--primary);
+    border-radius:999px;
+}
+
+.footer-tech{
+    color:#777;
+}
+
+.footer-copy{
+    color:#999;
     font-size:14px;
+    margin-top:22px;
 }
 
 a{
@@ -139,22 +197,25 @@ a{
     text-decoration:none;
 }
 
-a:hover{
-    text-decoration:underline;
+@media(max-width:768px){
+.hero h1{font-size:36px;}
+.hero p{font-size:17px;}
+.card{padding:26px;}
 }
 </style>
-
 </head>
 
 <body>
 
 <section class="hero">
 
+<div class="logo">BS</div>
+
 <h1>About BigSamLab</h1>
 
-<p>
-Learning in Public. Building with AI.
-</p>
+<p>Learning in Public · Building with AI</p>
+
+<small>持续学习 · 持续实践 · 持续分享</small>
 
 </section>
 
@@ -162,57 +223,47 @@ Learning in Public. Building with AI.
 
 <div class="card">
 
-<h2>👋 Hi, I'm Sam</h2>
+<h2>👋 关于我 <span>About Me</span></h2>
 
-<p>
-欢迎来到 BigSamLab。
-</p>
+<p>你好，我是 <strong>Sam</strong>。</p>
 
-<p>
-这里是我的个人 AI 实验室，也是我记录学习、思考与实践的地方。</p>
+<p>欢迎来到 <strong>BigSamLab</strong>，这里是我的个人 AI 实验室，也是记录学习、思考与实践的地方。</p>
 
-<p>
-我目前从事网络通信行业，日常关注 AI、科技、企业数字化以及效率工具的发展，希望通过持续输出，把零散的信息沉淀成真正有价值的知识。
-</p>
+<p>目前主要关注 AI、网络通信、自动化、产品运营以及效率工具，希望通过持续输出，把每天的信息沉淀成真正有价值的知识。</p>
+
+<p>我相信：<strong>最好的学习方式，就是持续实践。</strong></p>
 
 </div>
 
 <div class="card">
 
-<h2>📈 我会分享什么 <span style="font-size:18px;color:#888;">What You'll Find</span></h2>
+<h2>📈 我会分享什么 <span>What You'll Find</span></h2>
 
 <div class="grid">
 
 <div class="item">
 <h3>📰 Daily Market Insight</h3>
-
 <ul>
 <li>AI 行业最新资讯</li>
 <li>科技趋势与热点</li>
 <li>大模型与 AI Agent</li>
-<li>企业级 AI 应用</li>
+<li>企业 AI 应用</li>
 <li>市场观察与分析</li>
 </ul>
-
 </div>
 
 <div class="item">
-
 <h3>📚 Archive</h3>
-
 <ul>
 <li>每日日报归档</li>
 <li>历史内容检索</li>
 <li>长期趋势追踪</li>
 <li>个人知识沉淀</li>
 </ul>
-
 </div>
 
 <div class="item">
-
 <h3>🧪 Projects</h3>
-
 <ul>
 <li>AI 自动化实践</li>
 <li>GitHub 工作流</li>
@@ -220,88 +271,94 @@ Learning in Public. Building with AI.
 <li>OpenAI Agent</li>
 <li>个人实验项目</li>
 </ul>
-
 </div>
 
 </div>
 
-<h2>🛠 技术栈 <span style="font-size:18px;color:#888;">Tech Stack</span></h2>
+</div>
 
-<p style="margin-bottom:20px;color:#666;">
-本站主要基于以下技术与工具构建，并会持续引入新的 AI 能力与自动化方案。
-</p>
+<div class="card">
+
+<h2>🛠 技术栈 <span>Tech Stack</span></h2>
+
+<p>本站基于现代 Web 技术与 AI 工具构建，并持续引入新的自动化能力。</p>
 
 <div class="tech">
-
-<span class="badge">OpenAI</span>
-
-<span class="badge">GitHub Pages</span>
-
-<span class="badge">GitHub Actions</span>
-
-<span class="badge">HTML5</span>
-
-<span class="badge">CSS3</span>
-
-<span class="badge">JavaScript</span>
-
-<span class="badge">Python</span>
-
-<span class="badge">AI Automation</span>
-
-<span class="badge">Prompt Engineering</span>
+<span class="badge">🤖 OpenAI</span>
+<span class="badge">⚙ GitHub Actions</span>
+<span class="badge">🌍 GitHub Pages</span>
+<span class="badge">🐍 Python</span>
+<span class="badge">💻 JavaScript</span>
+<span class="badge">🎨 HTML5</span>
+<span class="badge">✨ CSS3</span>
+<span class="badge">🚀 AI Automation</span>
+</div>
 
 </div>
 
-<h2>🎯 为什么创建 BigSamLab <span style="font-size:18px;color:#888;">Mission</span></h2>
+<div class="card">
 
-<p>
-每天都会产生大量关于 AI 的新闻、产品和新技术，但真正有价值的并不是信息本身，而是持续记录、不断实践，并形成自己的思考。
-</p>
+<h2>🎯 为什么创建 BigSamLab <span>Mission</span></h2>
 
-<p>
-BigSamLab 希望成为一个长期积累的平台，记录 AI、网络通信、自动化以及效率工具的发展，也分享自己在工作与学习中的实践经验。
-</p>
+<p>每天都有大量关于 AI 的新闻、产品与技术更新。真正重要的不是追逐每一个热点，而是持续记录、不断实践，并逐渐形成自己的判断。</p>
+
+<p>BigSamLab 希望成为一个长期积累的平台，记录 AI、网络通信、自动化以及效率工具的发展，同时分享自己的实践经验。</p>
 
 <div class="quote">
-
-"Keep Building. Keep Learning. Keep Sharing."
+Keep Building. Keep Learning. Keep Sharing.
+</div>
 
 </div>
 
-<h2>📬 联系我 <span style="font-size:18px;color:#888;">Connect</span></h2>
+<div class="card">
 
-<p>
-如果你也关注 AI、网络通信、自动化、效率工具或产品运营，欢迎一起交流。
-</p>
+<h2>🚀 最近在做什么 <span>Now</span></h2>
 
-<p>
-<strong>GitHub：</strong><br>
-https://github.com/BigSamLab
-</p>
-
-<p>
-<strong>Website：</strong><br>
-https://bigsamlab.github.io/daily-market-insight/
-</p>
-
-<p style="color:#666;">
-更多 AI 实验、自动化项目与市场洞察，将持续在这里更新。
-</p>
+<ul style="padding-left:20px;">
+<li>🤖 AI Daily Market Insight 自动化日报</li>
+<li>⚡ GitHub Actions 自动发布流程</li>
+<li>🌐 网络通信行业 AI 应用探索</li>
+<li>🧠 AI Agent Workflow 实践</li>
+<li>📚 持续建设 BigSamLab</li>
+</ul>
 
 </div>
 
-<footer>
+<div class="card">
 
-© 2026 BigSamLab
+<h2>📬 联系我 <span>Connect</span></h2>
 
-<br><br>
+<p>如果你也关注 AI、网络通信、自动化、效率工具或产品运营，欢迎交流。</p>
 
+<p><strong>GitHub</strong><br>
+<a href="https://github.com/BigSamLab" target="_blank">https://github.com/BigSamLab</a></p>
+
+<p><strong>Website</strong><br>
+<a href="https://bigsamlab.github.io/daily-market-insight/" target="_blank">https://bigsamlab.github.io/daily-market-insight/</a></p>
+
+<p>更多 AI 实验、自动化项目与市场洞察，将持续在这里更新。</p>
+
+</div>
+
+</div>
+
+<footer class="footer">
+
+<div class="footer-logo">BigSamLab</div>
+
+<div class="footer-tagline">
 Learning in Public · Building with AI
+</div>
 
-<br><br>
+<div class="footer-divider"></div>
 
-Powered by GitHub Pages & GitHub Actions
+<div class="footer-tech">
+Powered by <strong>GitHub Pages</strong> · <strong>GitHub Actions</strong> · <strong>OpenAI</strong>
+</div>
+
+<div class="footer-copy">
+© 2026 BigSamLab. All Rights Reserved.
+</div>
 
 </footer>
 
