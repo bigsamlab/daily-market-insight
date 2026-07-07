@@ -1,34 +1,33 @@
 from pathlib import Path
 import re
 
-ROOT=Path(__file__).resolve().parent.parent
+ROOT = Path(__file__).resolve().parent.parent
+BRIEFS = ROOT / "briefs"
+ARCHIVE = ROOT / "archive.html"
 
-BRIEFS=ROOT/"briefs"
+files = sorted(BRIEFS.glob("*.html"), reverse=True)
 
-ARCHIVE=ROOT/"archive.html"
-
-files=sorted(BRIEFS.glob("*.html"),reverse=True)
-
-links=""
+print(f"ROOT = {ROOT}")
+print(f"BRIEFS = {BRIEFS}")
+print(f"Found {len(files)} html files")
 
 for f in files:
+    print(f.name)
 
-    links+=f'<a href="briefs/{f.name}">{f.stem}</a>\n'
+links = ""
 
-html=ARCHIVE.read_text(encoding="utf-8")
+for f in files:
+    links += f'<a href="briefs/{f.name}">{f.stem}</a>\n'
 
-html=re.sub(
+html = ARCHIVE.read_text(encoding="utf-8")
 
-r'<!-- ARCHIVE_START -->.*?<!-- ARCHIVE_END -->',
-
-f'<!-- ARCHIVE_START -->\n{links}\n<!-- ARCHIVE_END -->',
-
-html,
-
-flags=re.S
-
+html = re.sub(
+    r'<!-- ARCHIVE_START -->.*?<!-- ARCHIVE_END -->',
+    f'<!-- ARCHIVE_START -->\n{links}\n<!-- ARCHIVE_END -->',
+    html,
+    flags=re.S
 )
 
-ARCHIVE.write_text(html,encoding="utf-8")
+ARCHIVE.write_text(html, encoding="utf-8")
 
 print("Archive Updated")
